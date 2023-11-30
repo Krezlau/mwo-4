@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy ASP.Net Core app to Azure Web App - mwo-4
+name: 'mwo-4-prod-1.0.$(Rev:r)'
 
 on:
   push:
@@ -40,6 +40,8 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    env:
+      VERSION: '1.0.$(Rev:r)'
 
     steps:
       - name: Download artifact from build job
